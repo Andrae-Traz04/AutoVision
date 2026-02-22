@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import "./App.css";
 import LiveCamera from "./components/LiveCamera";
 import DetectionLogs from "./components/DetectionLogs";
+import Login from "./components/Login";
 
 function App() {
+  const [user, setUser] = useState(null);
   const [view, setView] = useState("dashboard");
+
 
   const stats = [
     { id: 1, label: "Total Vehicles", value: 12 },
@@ -19,16 +22,30 @@ function App() {
     { id: 3, type: "Truck", confidence: "95%" },
   ];
 
+  // ===== Logout =====
+  const handleLogout = () => {
+    setUser(null);
+    setView("dashboard");
+  };
+
+  // ===== Show Login First =====
+  if (!user) {
+    return <Login setUser={setUser} />;
+  }
+
   return (
     <div className="dashboard-container">
       {/* Sidebar */}
       <aside className="sidebar">
-        <h2>VehicleDetector</h2>
+        <h2>AutoVision</h2>
         <nav>
           <ul>
             <li onClick={() => setView("dashboard")}>Dashboard</li>
             <li onClick={() => setView("camera")}>Live Camera</li>
             <li onClick={() => setView("logs")}>Detection Logs</li>
+            <li onClick={handleLogout} className="logout-link">
+              Logout
+            </li>
           </ul>
         </nav>
       </aside>
@@ -36,10 +53,12 @@ function App() {
       <main className="main-content">
         {view === "dashboard" && (
           <>
-            <header>
+            <header className="dashboard-header">
               <h1>Vehicle Detection Dashboard</h1>
+              <p>Welcome, {user.name}</p>
             </header>
 
+            {/* Stats Section */}
             <section className="stats-grid">
               {stats.map((stat) => (
                 <div key={stat.id} className="stat-card">
@@ -49,6 +68,7 @@ function App() {
               ))}
             </section>
 
+            {/* Recent Detections */}
             <section>
               <h2>Recent Detections</h2>
               <div className="reports-grid">

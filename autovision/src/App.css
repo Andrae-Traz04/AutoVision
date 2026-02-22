@@ -73,7 +73,7 @@ body {
 /* Sidebar */
 .sidebar {
   width: 200px; 
-  background-color: #0f172a;
+  background-color: #102128;
   color: white;
   padding: 20px;
 }
@@ -156,7 +156,7 @@ header h1 {
 }
 
 .report-card {
-  padding: 15px; /* smaller */
+  padding: 15px; 
   border-radius: 10px;
   font-weight: 500;
   color: black; /* text black */
@@ -192,7 +192,7 @@ header h1 {
   padding: 10px 12px; 
   border-radius: 8px; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
-  font-size: 13px; /* smaller text */
+  font-size: 13px; 
 }
 
 .log-card h3 {
@@ -208,3 +208,148 @@ header h1 {
 
 
 
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+/* Login Sceen */
+
+.login-page {
+  height: 100vh;
+  display: flex;                        
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+.login-wrapper {
+  width: 520px;                         
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.login-wrapper h1 {
+  color: #00d4ff;
+  font-size: 48px;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Glass Card */
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 45px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(15px);
+}
+
+/* Inputs */
+.login-form input {
+  padding: 18px;
+  border-radius: 30px;
+  border: 1px solid rgba(0, 212, 255, 0.6);
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+.login-form input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+/* Button */
+.login-form button {
+  padding: 15px;
+  border-radius: 30px;
+  border: none;
+  background: #00d4ff;
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.login-form button:hover {
+  background: #00a8cc;
+  transform: scale(1.03);
+}
+
+
+
+
+
+
+
+/* LE DASHBOARD */
+
+.dashboard {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0f172a;
+  color: white;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 50px;
+  border-bottom: 1px solid #1f2937;
+  background: transparent;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logout-btn {
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: none;
+  background: #ef4444;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+
+.dashboard-content {
+  padding: 40px 60px;
+}
+
+
+
+/* Logout button */
+.logout-link {
+  color: #ef4444;
+  font-weight: bold;
+  cursor: pointer;
+}
