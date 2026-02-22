@@ -1,0 +1,210 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+input {
+  padding: 8px;
+  margin-top: 5px;
+}
+
+button {
+  padding: 10px;
+  background-color: #2b7cff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+}
+
+.pass {
+  color: green;
+}
+
+.fail {
+  color: red;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  color: black; 
+}
+
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+}
+
+
+
+
+
+
+
+/* Sidebar */
+.sidebar {
+  width: 200px; 
+  background-color: #0f172a;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 25px;
+  color: black; 
+}
+
+header h1 {
+  margin-bottom: 25px;
+  color: black;
+}
+
+
+
+
+
+
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: white;
+  padding: 15px; 
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.stat-card h2 {
+  font-size: 22px; 
+  margin: 0;
+  color: black; 
+}
+
+.stat-card p {
+  font-size: 14px;
+  margin-top: 5px;
+  color: black;
+}
+
+
+
+
+
+/* Recent Detection Grid */
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+}
+
+.report-card {
+  padding: 15px; /* smaller */
+  border-radius: 10px;
+  font-weight: 500;
+  color: black; /* text black */
+  background-color: #e5e7eb ; 
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.report-card h3 {
+  margin: 0 0 5px 0;
+}
+
+.report-card p {
+  margin: 0;
+  font-size: 13px;
+}
+
+
+
+
+
+
+/* detection logs */
+
+.logs-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.log-card {
+  background: white;
+  padding: 10px 12px; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  font-size: 13px; /* smaller text */
+}
+
+.log-card h3 {
+  margin: 0 0 6px 0;
+  font-size: 15px; 
+}
+
+.log-card p {
+  margin: 2px 0;
+  font-size: 12px; 
+}
+
+
+
+

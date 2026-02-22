@@ -1,0 +1,83 @@
+import React, { useRef, useEffect } from "react";
+import * as cocoSsd from "@tensorflow-models/coco-ssd";
+import "@tensorflow/tfjs";
+
+function LiveCamera() {
+  const videoRef = useRef(null);
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    let model;
+
+    const startCamera = async () => {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      videoRef.current.srcObject = stream;
+      videoRef.current.play();
+    };
+
+    const loadModel = async () => {
+      model = await cocoSsd.load();
+      detectFrame();
+    };
+
+    const detectFrame = async () => {
+      if (
+        videoRef.current &&
+        videoRef.current.readyState === 4 &&
+        model
+      ) {
+        const predictions = await model.detect(videoRef.current);
+        const ctx = canvasRef.current.getContext("2d");
+
+        ctx.clearRect(0, 0, 640, 480);
+
+        predictions.forEach((prediction) => {
+          if (
+            ["car", "truck", "bus", "motorcycle"].includes(
+              prediction.class
+            )
+          ) {
+            ctx.strokeStyle = "red";
+            ctx.lineWidth = 2;
+            ctx.strokeRect(...prediction.bbox);
+            ctx.fillStyle = "red";
+            ctx.fillText(
+              prediction.class,
+              prediction.bbox[0],
+              prediction.bbox[1] > 10
+                ? prediction.bbox[1] - 5
+                : 10
+            );
+          }
+        });
+      }
+
+      requestAnimationFrame(detectFrame);
+    };
+
+    startCamera();
+    loadModel();
+  }, []);
+
+  return (
+    <div>
+      <h2>Live Vehicle Detection</h2>
+      <div style={{ position: "relative", width: "640px", height: "480px" }}>
+        <video
+          ref={videoRef}
+          width="640"
+          height="480"
+          style={{ position: "absolute" }}
+        />
+        <canvas
+          ref={canvasRef}
+          width="640"
+          height="480"
+          style={{ position: "absolute" }}
+        />
+      </div>
+    </div>
+  );
+}
+
+export default LiveCamera;
