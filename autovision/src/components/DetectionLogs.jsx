@@ -1,7 +1,8 @@
 import React from "react";
+import "./DetectionLogs.css";
 
 function DetectionLogs() {
-  // Simulated detection history
+
   const logs = [
     {
       id: 1,

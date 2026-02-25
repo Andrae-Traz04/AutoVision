@@ -1,3 +1,6 @@
+import ".Dashboard.css";
+
+
 function Dashboard({ user, setUser }) {
   const handleLogout = () => {
     setUser(null);

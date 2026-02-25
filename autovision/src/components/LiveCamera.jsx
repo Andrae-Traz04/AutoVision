@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import "@tensorflow/tfjs";
+import "./LiveCamera.css";
 
 function LiveCamera() {
   const videoRef = useRef(null);
